@@ -1,132 +1,909 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Emma & David — 18.10.2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --text-main: #3d3530;
-            --bg-color: #f7f3f0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaRoyal — Poissons, Aquariums & Équipements</title>
+<meta name="description" content="AquaRoyal : votre spécialiste poissons d'aquarium, bacs sur mesure et équipements. Conseil expert, commande directe sur WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abysse:#020E18;
+  --profond:#06283D;
+  --lagon:#0B4F6C;
+  --aqua:#2EE6D6;
+  --aqua-soft:rgba(46,230,214,.12);
+  --corail:#FF6F61;
+  --sable:#F4E9DA;
+  --ecume:#CFE9F1;
+  --whatsapp:#25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Sora',sans-serif;
+  background:var(--abysse);
+  color:var(--ecume);
+  overflow-x:hidden;
+  line-height:1.65;
+}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.15}
+a{text-decoration:none;color:inherit}
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+/* ============ NAV ============ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 6vw;
+  background:rgba(2,14,24,.7);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(46,230,214,.15);
+}
+.logo{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--sable)}
+.logo span{color:var(--aqua)}
+.nav-links{display:flex;gap:32px;font-size:.92rem}
+.nav-links a{color:var(--ecume);opacity:.85;transition:.25s}
+.nav-links a:hover{opacity:1;color:var(--aqua)}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--whatsapp);color:#fff;font-weight:600;
+  padding:12px 24px;border-radius:50px;font-size:.95rem;
+  transition:transform .25s, box-shadow .25s;
+  box-shadow:0 4px 20px rgba(37,211,102,.35);
+}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.5)}
+.btn-wa svg{width:20px;height:20px;flex-shrink:0}
+.btn-wa.big{padding:17px 36px;font-size:1.05rem}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(46,230,214,.5);color:var(--aqua);
+  padding:16px 32px;border-radius:50px;font-weight:600;font-size:1rem;
+  transition:.25s;
+}
+.btn-ghost:hover{background:var(--aqua-soft)}
 
-        body, html {
-            margin: 0; padding: 0;
-            height: 100%; width: 100%;
-            background-color: var(--bg-color);
-            font-family: 'Montserrat', sans-serif;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
+/* ============ HERO / OCÉAN ============ */
+header{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  padding:140px 6vw 80px;
+  background:
+    radial-gradient(ellipse 90% 55% at 65% 0%, rgba(11,79,108,.65), transparent 65%),
+    radial-gradient(ellipse 60% 50% at 15% 95%, rgba(46,230,214,.07), transparent 60%),
+    linear-gradient(180deg, #083146 0%, var(--profond) 45%, var(--abysse) 100%);
+  overflow:hidden;
+  cursor:crosshair;
+}
+.hero-inner{position:relative;z-index:30;max-width:720px;pointer-events:none}
+.hero-inner a{pointer-events:auto}
+.eyebrow{
+  display:inline-block;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--aqua);border:1px solid rgba(46,230,214,.35);
+  padding:7px 18px;border-radius:50px;margin-bottom:26px;
+  background:rgba(2,14,24,.45);backdrop-filter:blur(4px);
+}
+header h1{
+  font-size:clamp(2.6rem,6vw,4.6rem);color:var(--sable);
+  margin-bottom:24px;text-shadow:0 4px 30px rgba(2,14,24,.8);
+}
+header h1 em{font-style:italic;color:var(--aqua);font-weight:300}
+.hero-sub{font-size:1.15rem;opacity:.9;max-width:540px;margin-bottom:40px;text-shadow:0 2px 18px rgba(2,14,24,.9)}
+.hero-cta{display:flex;gap:18px;flex-wrap:wrap}
+.hero-badges{display:flex;gap:34px;margin-top:56px;flex-wrap:wrap}
+.hero-badges div{font-size:.85rem;opacity:.85;text-shadow:0 2px 12px rgba(2,14,24,.9)}
+.hero-badges strong{display:block;font-family:'Fraunces',serif;font-size:1.7rem;color:var(--aqua);font-weight:600}
+.hint{
+  position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+  font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;opacity:.5;z-index:30;
+  animation:hintFade 3s ease-in-out infinite;pointer-events:none;text-align:center;
+}
+@keyframes hintFade{0%,100%{opacity:.3}50%{opacity:.7}}
 
-        /* --- TEXTURE DE FOND PAPIER --- */
-        body::before {
-            content: "";
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 1;
-        }
+/* couches océan */
+.ocean-layer{position:absolute;inset:0;pointer-events:none}
+#school{position:absolute;inset:0;z-index:8;pointer-events:none}
 
-        /* --- LOGO GÉANT --- */
-        .logo-container {
-            position: fixed; /* Fixé pour occuper tout l'espace derrière le bouton */
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 10;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; /* Coupe ce qui dépasse du scale */
-            animation: heroReveal 2.5s cubic-bezier(0.2, 1, 0.3, 1);
-        }
+/* caustiques : nappes lumineuses ondulantes */
+.caustics{z-index:2;opacity:.5;mix-blend-mode:screen;
+  background:
+    radial-gradient(ellipse 35% 18% at 20% 12%, rgba(173,232,244,.30), transparent 70%),
+    radial-gradient(ellipse 28% 14% at 55% 8%, rgba(173,232,244,.22), transparent 70%),
+    radial-gradient(ellipse 40% 16% at 85% 14%, rgba(173,232,244,.26), transparent 70%);
+  animation:causticDrift 11s ease-in-out infinite alternate;
+  filter:blur(6px);
+}
+@keyframes causticDrift{
+  0%{transform:translateX(-3%) scaleY(1)}
+  50%{transform:translateX(2%) scaleY(1.15)}
+  100%{transform:translateX(4%) scaleY(.95)}
+}
+.ray{position:absolute;top:-25%;width:170px;height:150%;z-index:3;
+  background:linear-gradient(180deg, rgba(207,233,241,.14), rgba(207,233,241,.03) 55%, transparent 80%);
+  transform:skewX(-16deg);pointer-events:none;
+  animation:raySway 8s ease-in-out infinite alternate;
+  mix-blend-mode:screen;
+}
+.ray:nth-of-type(1){left:42%}
+.ray:nth-of-type(2){left:58%;width:90px;animation-delay:-2.5s;animation-duration:10s}
+.ray:nth-of-type(3){left:74%;width:230px;animation-delay:-5s;animation-duration:12s}
+.ray:nth-of-type(4){left:25%;width:120px;animation-delay:-7s;animation-duration:9s}
+@keyframes raySway{
+  from{opacity:.35;transform:skewX(-16deg) translateX(0)}
+  to{opacity:.85;transform:skewX(-13deg) translateX(30px)}
+}
 
-        .main-logo {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Ou 'cover' si tu veux qu'elle soit zoomée au point de toucher les bords */
-            transform: scale(1.5); /* AUGMENTATION DRASTIQUE ICI */
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.05));
-        }
+/* particules / plancton */
+.plankton{position:absolute;border-radius:50%;background:rgba(207,233,241,.5);
+  pointer-events:none;z-index:4;animation:drift linear infinite}
+@keyframes drift{
+  from{transform:translate(0,0)}
+  to{transform:translate(-60px,-110vh)}
+}
 
-        /* --- CONTAINER BOUTON --- */
-        .footer-overlay {
-            position: fixed;
-            bottom: 60px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 30; /* Au-dessus du logo géant */
-            animation: fadeInBtn 3s ease-out;
-        }
+/* bulles */
+.bubble{position:absolute;border-radius:50%;z-index:9;
+  background:radial-gradient(circle at 32% 28%, rgba(255,255,255,.55), rgba(255,255,255,.08) 60%, rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:inset -2px -2px 6px rgba(255,255,255,.12);
+  animation:rise linear forwards;pointer-events:none}
+@keyframes rise{
+  0%{transform:translateY(0) translateX(0) scale(.6);opacity:0}
+  8%{opacity:.9}
+  50%{transform:translateY(-55vh) translateX(26px) scale(1)}
+  100%{transform:translateY(-115vh) translateX(-14px) scale(1.1);opacity:0}
+}
 
-        /* --- BOUTON LUXE --- */
-        .btn-enter {
-            display: inline-block;
-            padding: 20px 60px;
-            background: rgba(255, 255, 255, 0.85); /* Fond plus opaque car logo dessous */
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: var(--text-main);
-            border: 1px solid var(--text-main);
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            transition: all 0.5s ease;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+/* ====== POISSONS SVG RÉALISTES ====== */
+.fish-track{position:absolute;left:0;width:100%;height:0;pointer-events:none}
+.fish-swim{
+  position:absolute;will-change:transform;
+  animation:swimX linear infinite;
+}
+.fish-swim.rev{animation-name:swimXR}
+@keyframes swimX{from{transform:translateX(-22vw)}to{transform:translateX(115vw)}}
+@keyframes swimXR{from{transform:translateX(115vw) scaleX(-1)}to{transform:translateX(-22vw) scaleX(-1)}}
+.fish-bob{animation:bob ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(-14px) rotate(-2deg)}to{transform:translateY(14px) rotate(2deg)}}
 
-        .btn-enter:hover {
-            background: var(--text-main);
-            color: #fff;
-            letter-spacing: 8px;
-        }
+/* animations internes des poissons (queue, nageoires) */
+.tail{transform-box:fill-box;transform-origin:left center;animation:tailWag .55s ease-in-out infinite alternate}
+.tail.slow{animation-duration:.9s}
+@keyframes tailWag{from{transform:rotate(-14deg) scaleX(.92)}to{transform:rotate(14deg) scaleX(1.05)}}
+.finTop{transform-box:fill-box;transform-origin:bottom center;animation:finWave 1.1s ease-in-out infinite alternate}
+@keyframes finWave{from{transform:skewX(-7deg) scaleY(.94)}to{transform:skewX(7deg) scaleY(1.06)}}
+.finPec{transform-box:fill-box;transform-origin:top left;animation:pecFlap .45s ease-in-out infinite alternate}
+@keyframes pecFlap{from{transform:rotate(8deg)}to{transform:rotate(36deg)}}
+.veil{transform-box:fill-box;transform-origin:left center;animation:veilFlow 1.6s ease-in-out infinite alternate}
+@keyframes veilFlow{
+  from{transform:rotate(-7deg) scaleY(.9) skewY(4deg)}
+  to{transform:rotate(9deg) scaleY(1.12) skewY(-5deg)}
+}
+.gill{animation:gillPulse 1.4s ease-in-out infinite}
+@keyframes gillPulse{0%,100%{opacity:.25}50%{opacity:.55}}
 
-        /* --- ANIMATIONS --- */
-        @keyframes heroReveal {
-            from { opacity: 0; transform: scale(1.2); }
-            to { opacity: 1; transform: scale(1); }
-        }
+/* méduses */
+.jelly{position:absolute;pointer-events:none;z-index:5;animation:jellyRise linear infinite;opacity:.8}
+@keyframes jellyRise{
+  from{transform:translateY(40vh) translateX(0)}
+  to{transform:translateY(-120vh) translateX(60px)}
+}
+.jelly .bell{transform-box:fill-box;transform-origin:center bottom;animation:bellPump 2.2s ease-in-out infinite}
+@keyframes bellPump{
+  0%,100%{transform:scaleX(1) scaleY(1)}
+  45%{transform:scaleX(.82) scaleY(1.16)}
+  60%{transform:scaleX(1.08) scaleY(.92)}
+}
+.jelly .tent{transform-box:fill-box;transform-origin:top center;animation:tentSway 2.2s ease-in-out infinite alternate}
+@keyframes tentSway{from{transform:skewX(-9deg)}to{transform:skewX(9deg)}}
 
-        @keyframes fadeInBtn {
-            0%, 50% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+/* ============ SECTIONS ============ */
+section{padding:100px 6vw;position:relative}
+.section-head{max-width:640px;margin-bottom:60px}
+.section-head .tag{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--corail);font-weight:600}
+.section-head h2{font-size:clamp(1.9rem,4vw,3rem);color:var(--sable);margin:14px 0 16px}
+.section-head p{opacity:.8}
 
-        .fade-out {
-            animation: fadeOut 0.8s forwards cubic-bezier(0.2, 1, 0.3, 1);
-        }
+.marquee{
+  background:var(--aqua);color:var(--abysse);
+  padding:16px 0;overflow:hidden;white-space:nowrap;
+  font-weight:600;font-size:.95rem;letter-spacing:.05em;position:relative;z-index:20;
+}
+.marquee-track{display:inline-block;animation:scroll 28s linear infinite}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee span{margin:0 28px}
 
-        @keyframes fadeOut {
-            to { opacity: 0; transform: scale(1.1); filter: blur(20px); }
-        }
-    </style>
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:26px}
+.card{
+  background:linear-gradient(160deg, rgba(11,79,108,.35), rgba(6,40,61,.6));
+  border:1px solid rgba(46,230,214,.14);
+  border-radius:22px;padding:36px 30px;
+  transition:transform .35s cubic-bezier(.2,.8,.3,1.2), border-color .3s, box-shadow .3s;
+  position:relative;overflow:hidden;
+}
+.card::after{
+  content:"";position:absolute;top:-60%;left:-60%;width:60%;height:220%;
+  background:linear-gradient(100deg, transparent, rgba(207,233,241,.10), transparent);
+  transform:rotate(18deg);transition:left .6s ease;
+}
+.card:hover::after{left:130%}
+.card:hover{transform:translateY(-8px) rotate(-.5deg);border-color:rgba(46,230,214,.5);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.card .ico{width:84px;height:48px;margin-bottom:18px;display:block}
+.card .ico svg{width:100%;height:100%;overflow:visible}
+.card h3{color:var(--sable);font-size:1.35rem;margin-bottom:12px}
+.card p{font-size:.94rem;opacity:.8;margin-bottom:22px}
+.card a{color:var(--whatsapp);font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:8px}
+.card a:hover{text-decoration:underline}
+
+.services{background:linear-gradient(180deg, var(--abysse), var(--profond));overflow:hidden}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;position:relative;z-index:5}
+.step{padding:32px 28px;border-left:2px solid rgba(46,230,214,.35)}
+.step strong{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--aqua);display:block;margin-bottom:10px}
+.step p{font-size:.93rem;opacity:.8}
+
+.promise{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.promise-visual{
+  border-radius:28px;min-height:420px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 30% 15%, rgba(46,230,214,.22), transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(255,111,97,.15), transparent 50%),
+    linear-gradient(165deg, #0B4F6C, #041A29);
+  border:1px solid rgba(46,230,214,.2);
+}
+.promise-visual .tank-fish{position:absolute;animation:tankSwim ease-in-out infinite alternate}
+@keyframes tankSwim{
+  from{transform:translate(0,0) rotate(-3deg)}
+  to{transform:translate(46px,-26px) rotate(4deg)}
+}
+.weed{position:absolute;bottom:0;transform-box:fill-box;transform-origin:bottom center;animation:weedSway 3.4s ease-in-out infinite alternate}
+@keyframes weedSway{from{transform:skewX(-6deg)}to{transform:skewX(7deg)}}
+.promise ul{list-style:none;margin-top:24px}
+.promise li{padding:13px 0;border-bottom:1px solid rgba(207,233,241,.1);display:flex;gap:14px;align-items:flex-start}
+.promise li::before{content:"✓";color:var(--aqua);font-weight:700;flex-shrink:0}
+
+.cta-final{
+  text-align:center;overflow:hidden;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 100%, rgba(46,230,214,.14), transparent 65%),
+    var(--profond);
+  border-top:1px solid rgba(46,230,214,.15);
+}
+.cta-final h2{font-size:clamp(2rem,4.5vw,3.4rem);color:var(--sable);margin-bottom:18px;position:relative;z-index:5}
+.cta-final p{max-width:520px;margin:0 auto 38px;opacity:.85;position:relative;z-index:5}
+.cta-final .btn-wa{position:relative;z-index:5}
+.wa-number{display:inline-block;margin-top:22px;font-family:'Fraunces',serif;font-size:1.3rem;color:var(--aqua);letter-spacing:.04em;position:relative;z-index:5}
+
+footer{padding:40px 6vw;background:var(--abysse);border-top:1px solid rgba(207,233,241,.08);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:.85rem;opacity:.7}
+
+.wa-float{
+  position:fixed;bottom:26px;right:26px;z-index:200;
+  width:62px;height:62px;border-radius:50%;
+  background:var(--whatsapp);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 30px rgba(37,211,102,.5);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+.wa-float svg{width:32px;height:32px}
+@keyframes pulse{
+  0%,100%{box-shadow:0 8px 30px rgba(37,211,102,.5)}
+  50%{box-shadow:0 8px 30px rgba(37,211,102,.5), 0 0 0 14px rgba(37,211,102,.12)}
+}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  #school{display:none}
+}
+@media (max-width:820px){
+  .nav-links{display:none}
+  .promise{grid-template-columns:1fr}
+  section{padding:70px 5vw}
+}
+</style>
 </head>
 <body>
 
-    <div class="logo-container" id="hero">
-        <img src="logo1.png" alt="Emma & David" class="main-logo">
-    </div>
+<nav>
+  <a href="#" class="logo">Aqua<span>Royal</span></a>
+  <div class="nav-links">
+    <a href="#boutique">Boutique</a>
+    <a href="#services">Services</a>
+    <a href="#engagement">Notre engagement</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="btn-wa" href="https://wa.me/972584630913?text=Bonjour%20!%20Je%20vous%20contacte%20depuis%20votre%20site." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.7.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .2 0 .7-.2 1.2z"/></svg>
+    Commander
+  </a>
+</nav>
 
-    <div class="footer-overlay">
-        <button class="btn-enter" onclick="startTransition()">Voir l'invitation</button>
-    </div>
+<header id="ocean">
+  <div class="ocean-layer caustics"></div>
+  <div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div>
+  <canvas id="school"></canvas>
 
-    <script>
-        function startTransition() {
-            document.body.classList.add('fade-out');
-            setTimeout(() => {
-                window.location.href = "premiere-page.html";
-            }, 800);
-        }
-    </script>
+  <div class="hero-inner">
+    <span class="eyebrow">Aquariophilie · Vente & Conseil</span>
+    <h1>Plongez dans un monde <em>d'exception</em> aquatique</h1>
+    <p class="hero-sub">Poissons d'eau douce et d'eau de mer, aquariums sur mesure, équipements professionnels. Chaque passionné mérite un conseil d'expert — parlons de votre projet dès maintenant.</p>
+    <div class="hero-cta">
+      <a class="btn-wa big" href="https://wa.me/972584630913?text=Bonjour%20!%20Je%20souhaite%20des%20infos%20sur%20vos%20poissons%20et%20aquariums." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.7.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .2 0 .7-.2 1.2z"/></svg>
+        Discuter sur WhatsApp
+      </a>
+      <a class="btn-ghost" href="#boutique">Découvrir la boutique ↓</a>
+    </div>
+    <div class="hero-badges">
+      <div><strong>300+</strong>espèces disponibles</div>
+      <div><strong>15 ans</strong>de passion aquariophile</div>
+      <div><strong>7j/7</strong>réponse sur WhatsApp</div>
+    </div>
+  </div>
+  <div class="hint">🫧 Bougez la souris : le banc de néons vous suit · Cliquez : des bulles</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>🐠 Poissons tropicaux</span><span>🪸 Coraux & eau de mer</span><span>🌿 Plantes aquatiques</span><span>🛠️ Équipements pro</span><span>💧 Aquariums sur mesure</span><span>🍽️ Nourriture premium</span>
+    <span>🐠 Poissons tropicaux</span><span>🪸 Coraux & eau de mer</span><span>🌿 Plantes aquatiques</span><span>🛠️ Équipements pro</span><span>💧 Aquariums sur mesure</span><span>🍽️ Nourriture premium</span>
+  </div>
+</div>
+
+<section id="boutique">
+  <div class="section-head reveal">
+    <span class="tag">Notre boutique</span>
+    <h2>Tout pour votre aquarium, du premier poisson au bac récifal</h2>
+    <p>Sélectionnez une catégorie et envoyez-nous votre demande : on vous répond directement sur WhatsApp avec disponibilités et prix.</p>
+  </div>
+  <div class="grid">
+    <div class="card reveal">
+      <span class="ico" data-fish="betta"></span>
+      <h3>Poissons d'eau douce</h3>
+      <p>Guppys, néons, scalaires, discus, bettas, cichlidés africains… Des poissons en pleine santé, acclimatés avec soin.</p>
+      <a href="https://wa.me/972584630913?text=Bonjour%2C%20je%20cherche%20des%20poissons%20d'eau%20douce." target="_blank" rel="noopener">Demander les disponibilités →</a>
+    </div>
+    <div class="card reveal">
+      <span class="ico" data-fish="clown"></span>
+      <h3>Poissons d'eau de mer</h3>
+      <p>Poissons-clowns, chirurgiens, gobies, invertébrés et coraux pour votre bac récifal. Arrivages réguliers.</p>
+      <a href="https://wa.me/972584630913?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20poissons%20d'eau%20de%20mer." target="_blank" rel="noopener">Voir les arrivages →</a>
+    </div>
+    <div class="card reveal">
+      <span class="ico" data-fish="angel"></span>
+      <h3>Aquariums & meubles</h3>
+      <p>Du nano-aquarium au bac de 1000 litres, kits complets ou cuves sur mesure avec meuble assorti.</p>
+      <a href="https://wa.me/972584630913?text=Bonjour%2C%20je%20cherche%20un%20aquarium." target="_blank" rel="noopener">Demander un devis →</a>
+    </div>
+    <div class="card reveal">
+      <span class="ico" data-fish="tang"></span>
+      <h3>Équipements & filtration</h3>
+      <p>Filtres, pompes, chauffages, éclairages LED, écumeurs, osmoseurs… Les meilleures marques au meilleur prix.</p>
+      <a href="https://wa.me/972584630913?text=Bonjour%2C%20j'ai%20besoin%20d'%C3%A9quipement%20pour%20mon%20aquarium." target="_blank" rel="noopener">Demander conseil →</a>
+    </div>
+    <div class="card reveal">
+      <span class="ico" data-fish="guppy"></span>
+      <h3>Plantes & décors</h3>
+      <p>Plantes naturelles, racines, roches, substrats nutritifs et tout l'univers de l'aquascaping.</p>
+      <a href="https://wa.me/972584630913?text=Bonjour%2C%20je%20cherche%20des%20plantes%20et%20d%C3%A9cors%20d'aquarium." target="_blank" rel="noopener">Découvrir la sélection →</a>
+    </div>
+    <div class="card reveal">
+      <span class="ico" data-fish="neon"></span>
+      <h3>Nourriture & soins</h3>
+      <p>Aliments premium, vivants et congelés, traitements de l'eau et produits de soin pour des poissons en pleine forme.</p>
+      <a href="https://wa.me/972584630913?text=Bonjour%2C%20je%20cherche%20de%20la%20nourriture%20et%20des%20soins%20pour%20poissons." target="_blank" rel="noopener">Commander →</a>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="section-head reveal">
+    <span class="tag">Comment ça marche</span>
+    <h2>Commandez en 3 messages, c'est tout</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <strong>1 — Écrivez-nous</strong>
+      <p>Un clic sur le bouton WhatsApp et dites-nous ce que vous cherchez : poisson, matériel ou projet complet.</p>
+    </div>
+    <div class="step reveal">
+      <strong>2 — Recevez nos conseils</strong>
+      <p>Photos, disponibilités, compatibilités entre espèces, prix : on vous répond rapidement et honnêtement.</p>
+    </div>
+    <div class="step reveal">
+      <strong>3 — Récupérez votre commande</strong>
+      <p>Retrait en boutique ou livraison selon votre secteur. Vos poissons voyagent dans les meilleures conditions.</p>
+    </div>
+  </div>
+</section>
+
+<section id="engagement">
+  <div class="promise">
+    <div class="promise-visual reveal" id="tank" aria-hidden="true"></div>
+    <div class="reveal">
+      <span class="tag" style="color:var(--corail);font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600">Notre engagement</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--sable);margin:14px 0 6px">Des poissons en pleine santé, des clients bien conseillés</h2>
+      <ul>
+        <li>Quarantaine et acclimatation rigoureuses avant chaque vente</li>
+        <li>Conseils honnêtes : on ne vous vendra jamais un poisson incompatible avec votre bac</li>
+        <li>Suivi après achat sur WhatsApp — une question, on est là</li>
+        <li>Analyse gratuite de votre eau sur simple demande</li>
+        <li>Matériel testé et garanti</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta-final">
+  <h2 class="reveal">Prêt à donner vie à votre aquarium ?</h2>
+  <p class="reveal">Une question, un projet, une envie de nouveau pensionnaire ? Écrivez-nous, la réponse arrive vite.</p>
+  <a class="btn-wa big reveal" href="https://wa.me/972584630913?text=Bonjour%20!%20Je%20vous%20contacte%20depuis%20votre%20site." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.7.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .2 0 .7-.2 1.2z"/></svg>
+    Ouvrir WhatsApp
+  </a>
+  <div><span class="wa-number">+972 58‑463‑0913</span></div>
+</section>
+
+<footer>
+  <span>© 2026 AquaRoyal — Poissons, aquariums & équipements</span>
+  <span>Réponse rapide sur WhatsApp · 7j/7</span>
+</footer>
+
+<a class="wa-float" href="https://wa.me/972584630913?text=Bonjour%20!" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.7.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .2 0 .7-.2 1.2z"/></svg>
+</a>
+
+<script>
+/* =========================================================
+   POISSONS SVG ULTRA DÉTAILLÉS
+   Chaque espèce est un SVG vectoriel avec dégradés,
+   queue + nageoires animées indépendamment.
+   ========================================================= */
+let UID = 0;
+function defsId(){ return 'g' + (++UID); }
+
+/* --- Poisson-clown (Amphiprion ocellaris) --- */
+function clownfish(){
+  const id = defsId();
+  return `<svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <defs>
+    <linearGradient id="${id}b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF9A3C"/><stop offset=".5" stop-color="#F2701B"/><stop offset="1" stop-color="#C9520F"/>
+    </linearGradient>
+    <radialGradient id="${id}s" cx=".35" cy=".3" r=".9">
+      <stop offset="0" stop-color="rgba(255,255,255,.45)"/><stop offset=".4" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <g class="tail"><path d="M158 55 C175 38 192 33 198 36 C190 46 190 64 198 74 C192 77 175 72 158 55Z" fill="url(#${id}b)" stroke="#1d1d1d" stroke-width="2.5"/></g>
+  <g class="finTop"><path d="M70 26 C85 8 122 6 140 18 C128 22 118 28 112 34 L74 32Z" fill="url(#${id}b)" stroke="#1d1d1d" stroke-width="2.5"/></g>
+  <path d="M86 84 C96 98 116 100 126 94 C118 88 112 82 108 76Z" fill="url(#${id}b)" stroke="#1d1d1d" stroke-width="2.5"/>
+  <ellipse cx="105" cy="55" rx="58" ry="32" fill="url(#${id}b)" stroke="#1d1d1d" stroke-width="3"/>
+  <path d="M70 28 C84 24 88 84 72 82 C58 74 56 38 70 28Z" fill="#fff" stroke="#1d1d1d" stroke-width="2.5"/>
+  <path d="M104 24 C120 28 122 82 106 86 C92 80 90 30 104 24Z" fill="#fff" stroke="#1d1d1d" stroke-width="2.5"/>
+  <path d="M142 38 C152 42 152 68 142 72 C134 66 134 44 142 38Z" fill="#fff" stroke="#1d1d1d" stroke-width="2.5"/>
+  <ellipse cx="105" cy="55" rx="58" ry="32" fill="url(#${id}s)"/>
+  <g class="finPec"><path d="M95 56 C108 60 116 72 112 82 C100 80 92 70 90 60Z" fill="#FFB066" stroke="#1d1d1d" stroke-width="2.5" opacity=".95"/></g>
+  <circle cx="66" cy="48" r="7" fill="#fff"/><circle cx="66" cy="48" r="4.5" fill="#1a1a1a"/><circle cx="64.5" cy="46.5" r="1.6" fill="#fff"/>
+  <path d="M50 58 q6 4 12 2" stroke="#8a3c0a" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>`;
+}
+
+/* --- Chirurgien bleu (Paracanthurus hepatus) --- */
+function tang(){
+  const id = defsId();
+  return `<svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <defs>
+    <linearGradient id="${id}b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3FA9F5"/><stop offset=".55" stop-color="#1565C0"/><stop offset="1" stop-color="#0A3D7A"/>
+    </linearGradient>
+    <linearGradient id="${id}t" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFD93D"/><stop offset="1" stop-color="#F6B800"/>
+    </linearGradient>
+    <radialGradient id="${id}s" cx=".35" cy=".25" r=".9">
+      <stop offset="0" stop-color="rgba(255,255,255,.4)"/><stop offset=".45" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <g class="tail"><path d="M152 55 C168 36 186 32 198 38 C188 48 188 62 198 72 C186 78 168 74 152 55Z" fill="url(#${id}t)" stroke="#0A3D7A" stroke-width="2"/></g>
+  <path d="M105 18 C140 18 162 36 164 55 C162 74 140 92 105 92 C66 92 42 74 40 55 C42 36 66 18 105 18Z" fill="url(#${id}b)"/>
+  <path d="M68 30 C100 22 138 30 150 44 C142 60 120 56 100 62 C86 66 76 76 70 84 C58 74 52 44 68 30Z" fill="#071B33" opacity=".9"/>
+  <circle cx="118" cy="46" r="9" fill="#071B33"/>
+  <path d="M105 18 C140 18 162 36 164 55 C162 74 140 92 105 92 C66 92 42 74 40 55 C42 36 66 18 105 18Z" fill="url(#${id}s)"/>
+  <g class="finPec"><path d="M92 54 C104 58 112 70 108 80 C96 78 88 68 86 58Z" fill="#1E88E5" opacity=".9"/></g>
+  <circle cx="62" cy="46" r="6.5" fill="#fff"/><circle cx="62" cy="46" r="4" fill="#0a0a0a"/><circle cx="60.5" cy="44.5" r="1.4" fill="#fff"/>
+  <path class="gill" d="M78 38 q-6 10 0 22" stroke="rgba(255,255,255,.5)" stroke-width="1.5" fill="none"/>
+  </svg>`;
+}
+
+/* --- Betta splendens (combattant voile rouge/violet) --- */
+function betta(){
+  const id = defsId();
+  return `<svg viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <defs>
+    <linearGradient id="${id}b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E63E6D"/><stop offset=".6" stop-color="#9B1B5C"/><stop offset="1" stop-color="#5C0E63"/>
+    </linearGradient>
+    <linearGradient id="${id}v" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="rgba(230,62,109,.95)"/><stop offset=".7" stop-color="rgba(123,31,162,.75)"/><stop offset="1" stop-color="rgba(83,21,134,.35)"/>
+    </linearGradient>
+    <radialGradient id="${id}s" cx=".3" cy=".25" r=".9">
+      <stop offset="0" stop-color="rgba(255,255,255,.5)"/><stop offset=".4" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <g class="veil"><path d="M120 62 C150 30 195 26 216 44 C200 50 192 60 190 70 C204 72 212 82 214 94 C192 102 150 92 120 66Z" fill="url(#${id}v)"/></g>
+  <g class="veil" style="animation-delay:-.6s"><path d="M70 34 C84 6 130 0 156 14 C136 22 124 34 118 44 L74 42Z" fill="url(#${id}v)"/></g>
+  <g class="veil" style="animation-delay:-1.1s"><path d="M72 88 C84 118 130 126 154 112 C136 104 124 94 118 84 L76 82Z" fill="url(#${id}v)"/></g>
+  <path d="M38 62 C52 38 92 32 116 42 C132 50 134 74 118 82 C94 94 54 86 38 62Z" fill="url(#${id}b)"/>
+  <path d="M38 62 C52 38 92 32 116 42 C132 50 134 74 118 82 C94 94 54 86 38 62Z" fill="url(#${id}s)"/>
+  <path d="M60 46 q20 -4 44 4 M58 70 q22 8 46 2" stroke="rgba(255,255,255,.18)" stroke-width="2" fill="none"/>
+  <g class="finPec"><path d="M84 62 C96 64 104 74 100 84 C90 82 82 72 80 64Z" fill="rgba(255,120,160,.85)"/></g>
+  <circle cx="52" cy="56" r="6" fill="#fff"/><circle cx="52" cy="56" r="3.8" fill="#12041a"/><circle cx="50.6" cy="54.6" r="1.3" fill="#fff"/>
+  </svg>`;
+}
+
+/* --- Scalaire (Pterophyllum) --- */
+function angelfish(){
+  const id = defsId();
+  return `<svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <defs>
+    <linearGradient id="${id}b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E8EEF2"/><stop offset=".55" stop-color="#B9C8D4"/><stop offset="1" stop-color="#7E93A6"/>
+    </linearGradient>
+    <radialGradient id="${id}s" cx=".35" cy=".3" r=".9">
+      <stop offset="0" stop-color="rgba(255,255,255,.6)"/><stop offset=".5" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <g class="finTop" style="animation-duration:1.6s"><path d="M70 78 C74 36 92 8 112 2 C104 30 106 58 104 80Z" fill="url(#${id}b)" stroke="#5A6E80" stroke-width="2"/></g>
+  <g class="finTop" style="transform-origin:top center;animation-duration:1.8s"><path d="M70 122 C74 164 92 190 112 198 C104 170 106 142 104 120Z" fill="url(#${id}b)" stroke="#5A6E80" stroke-width="2"/></g>
+  <g class="tail slow"><path d="M118 100 C132 84 148 80 158 84 C150 92 150 108 158 116 C148 120 132 116 118 100Z" fill="url(#${id}b)" stroke="#5A6E80" stroke-width="2"/></g>
+  <path d="M80 56 C108 56 126 76 126 100 C126 124 108 144 80 144 C52 144 30 122 30 100 C30 78 52 56 80 56Z" fill="url(#${id}b)" stroke="#5A6E80" stroke-width="2.5"/>
+  <path d="M66 60 C72 60 76 138 68 140 C58 134 56 66 66 60Z" fill="#22303C" opacity=".85"/>
+  <path d="M96 62 C102 64 104 134 98 138 C90 132 88 68 96 62Z" fill="#22303C" opacity=".85"/>
+  <path d="M80 56 C108 56 126 76 126 100 C126 124 108 144 80 144 C52 144 30 122 30 100 C30 78 52 56 80 56Z" fill="url(#${id}s)"/>
+  <g class="finPec"><path d="M74 100 C84 104 90 114 86 124 C76 120 70 110 70 102Z" fill="rgba(255,255,255,.7)"/></g>
+  <circle cx="48" cy="88" r="6" fill="#fff"/><circle cx="48" cy="88" r="4" fill="#0c0c0c"/><circle cx="46.6" cy="86.6" r="1.3" fill="#fff"/>
+  </svg>`;
+}
+
+/* --- Néon bleu (Paracheirodon innesi) --- */
+function neon(){
+  const id = defsId();
+  return `<svg viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <defs>
+    <linearGradient id="${id}n" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00E5FF"/><stop offset="1" stop-color="#2979FF"/>
+    </linearGradient>
+    <linearGradient id="${id}r" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF1744"/><stop offset="1" stop-color="#D50000"/>
+    </linearGradient>
+  </defs>
+  <g class="tail" style="animation-duration:.4s"><path d="M104 25 C114 16 124 14 130 16 C126 21 126 29 130 34 C124 36 114 34 104 25Z" fill="rgba(220,235,245,.85)"/></g>
+  <ellipse cx="62" cy="25" rx="46" ry="13" fill="#C9D8E2" opacity=".95"/>
+  <path d="M20 22 C44 14 84 16 104 24 C84 28 44 28 20 26Z" fill="url(#${id}n)" opacity=".95"/>
+  <path d="M58 28 C74 26 96 28 106 30 C96 35 72 36 58 33Z" fill="url(#${id}r)"/>
+  <ellipse cx="62" cy="20" rx="40" ry="6" fill="rgba(255,255,255,.35)"/>
+  <circle cx="24" cy="23" r="4.5" fill="#fff"/><circle cx="24" cy="23" r="3" fill="#0a0a0a"/><circle cx="23" cy="22" r="1" fill="#fff"/>
+  </svg>`;
+}
+
+/* --- Guppy queue éventail --- */
+function guppy(){
+  const id = defsId();
+  return `<svg viewBox="0 0 170 90" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <defs>
+    <linearGradient id="${id}b" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9FD8CB"/><stop offset="1" stop-color="#5FA8D3"/>
+    </linearGradient>
+    <radialGradient id="${id}t" cx=".2" cy=".5" r="1">
+      <stop offset="0" stop-color="#FF8C42"/><stop offset=".5" stop-color="#FF3C6E"/><stop offset="1" stop-color="#7B2CBF"/>
+    </radialGradient>
+  </defs>
+  <g class="veil" style="animation-duration:1.2s"><path d="M96 45 C118 14 152 8 168 18 C156 28 152 38 152 45 C152 52 156 62 168 72 C152 82 118 76 96 45Z" fill="url(#${id}t)" opacity=".92"/>
+  <path d="M104 45 C120 28 142 22 156 26 M104 45 C120 62 142 68 156 64" stroke="rgba(40,10,60,.35)" stroke-width="1.5" fill="none"/></g>
+  <g class="finTop"><path d="M52 26 C62 12 84 10 96 18 C86 24 80 30 76 36 L56 34Z" fill="url(#${id}t)" opacity=".85"/></g>
+  <path d="M16 45 C28 30 62 24 84 32 C98 38 100 54 86 60 C64 70 30 62 16 45Z" fill="url(#${id}b)"/>
+  <circle cx="70" cy="42" r="4" fill="#FF3C6E" opacity=".7"/><circle cx="82" cy="50" r="3" fill="#7B2CBF" opacity=".6"/>
+  <ellipse cx="50" cy="38" rx="26" ry="6" fill="rgba(255,255,255,.3)"/>
+  <g class="finPec"><path d="M58 48 C68 50 74 58 70 66 C62 64 56 56 54 50Z" fill="rgba(255,255,255,.6)"/></g>
+  <circle cx="28" cy="42" r="5" fill="#fff"/><circle cx="28" cy="42" r="3.2" fill="#0c0c0c"/><circle cx="27" cy="41" r="1.1" fill="#fff"/>
+  </svg>`;
+}
+
+/* --- Méduse --- */
+function jellyfish(){
+  const id = defsId();
+  return `<svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <defs>
+    <radialGradient id="${id}j" cx=".5" cy=".35" r=".8">
+      <stop offset="0" stop-color="rgba(173,216,255,.85)"/><stop offset=".6" stop-color="rgba(120,160,255,.4)"/><stop offset="1" stop-color="rgba(100,140,255,.08)"/>
+    </radialGradient>
+  </defs>
+  <g class="tent"><path d="M30 52 q-6 30 4 60 M44 56 q-2 36 6 80 M58 56 q4 34 -4 76 M70 52 q8 28 0 58" stroke="rgba(160,200,255,.5)" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+  <g class="bell">
+    <path d="M50 8 C76 8 88 30 86 46 C74 56 26 56 14 46 C12 30 24 8 50 8Z" fill="url(#${id}j)"/>
+    <path d="M22 46 q28 10 56 0" stroke="rgba(200,225,255,.6)" stroke-width="2" fill="none"/>
+    <ellipse cx="42" cy="24" rx="10" ry="5" fill="rgba(255,255,255,.35)"/>
+  </g>
+  </svg>`;
+}
+
+const SPECIES = { clown: clownfish, tang, betta, angel: angelfish, neon, guppy };
+
+/* ============ OCÉAN DU HERO ============ */
+const ocean = document.getElementById('ocean');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function spawnSwimmers(){
+  // grands poissons détaillés qui traversent l'écran
+  const cast = [
+    {sp:'clown', w:130, top:18, dur:34},
+    {sp:'tang',  w:150, top:30, dur:40, rev:true},
+    {sp:'betta', w:190, top:55, dur:50},
+    {sp:'angel', w:110, top:42, dur:58, rev:true},
+    {sp:'guppy', w:110, top:70, dur:30},
+    {sp:'clown', w:80,  top:62, dur:46, rev:true},
+    {sp:'tang',  w:90,  top:80, dur:52},
+    {sp:'guppy', w:80,  top:12, dur:38, rev:true},
+  ];
+  cast.forEach((c,i)=>{
+    const track = document.createElement('div');
+    track.className='fish-track';
+    track.style.top = c.top + '%';
+    track.style.zIndex = c.w > 120 ? 12 : 6;
+    const swim = document.createElement('div');
+    swim.className = 'fish-swim' + (c.rev ? ' rev' : '');
+    swim.style.animationDuration = c.dur + 's';
+    swim.style.animationDelay = (-Math.random()*c.dur) + 's';
+    const bob = document.createElement('div');
+    bob.className = 'fish-bob';
+    bob.style.width = c.w + 'px';
+    bob.style.animationDuration = (2.5 + Math.random()*2) + 's';
+    bob.style.filter = c.w < 100 ? 'blur(.6px) brightness(.85)' : 'drop-shadow(0 6px 14px rgba(0,0,0,.45))';
+    bob.style.opacity = c.w < 100 ? .8 : 1;
+    bob.innerHTML = SPECIES[c.sp]();
+    swim.appendChild(bob); track.appendChild(swim); ocean.appendChild(track);
+  });
+}
+
+function spawnJellies(){
+  for(let i=0;i<3;i++){
+    const j = document.createElement('div');
+    j.className='jelly';
+    const w = 50 + Math.random()*50;
+    j.style.width = w+'px';
+    j.style.left = (8 + Math.random()*84)+'%';
+    j.style.bottom = '-160px';
+    j.style.animationDuration = (38 + Math.random()*30)+'s';
+    j.style.animationDelay = (-Math.random()*40)+'s';
+    j.innerHTML = jellyfish();
+    ocean.appendChild(j);
+  }
+}
+
+function spawnPlankton(){
+  for(let i=0;i<26;i++){
+    const p = document.createElement('div');
+    p.className='plankton';
+    const s = 1 + Math.random()*3;
+    p.style.width = p.style.height = s+'px';
+    p.style.left = Math.random()*100+'%';
+    p.style.top = Math.random()*100+'%';
+    p.style.opacity = .15 + Math.random()*.4;
+    p.style.animationDuration = (30 + Math.random()*50)+'s';
+    p.style.animationDelay = (-Math.random()*60)+'s';
+    ocean.appendChild(p);
+  }
+}
+
+function spawnBubbleColumn(){
+  setInterval(()=>{
+    if(document.hidden) return;
+    const b = document.createElement('div');
+    b.className='bubble';
+    const s = 5 + Math.random()*18;
+    b.style.width = b.style.height = s+'px';
+    b.style.left = Math.random()*100+'%';
+    b.style.bottom = '-40px';
+    b.style.animationDuration = (7 + Math.random()*8)+'s';
+    ocean.appendChild(b);
+    setTimeout(()=>b.remove(), 16000);
+  }, 700);
+}
+
+/* bulles au clic */
+ocean.addEventListener('pointerdown', e=>{
+  if(reduced) return;
+  const r = ocean.getBoundingClientRect();
+  for(let i=0;i<10;i++){
+    const b = document.createElement('div');
+    b.className='bubble';
+    const s = 4 + Math.random()*16;
+    b.style.width = b.style.height = s+'px';
+    b.style.left = (e.clientX - r.left + (Math.random()*60-30))+'px';
+    b.style.top  = (e.clientY - r.top  + (Math.random()*30-15))+'px';
+    b.style.bottom = 'auto';
+    b.style.animationDuration = (3 + Math.random()*4)+'s';
+    ocean.appendChild(b);
+    setTimeout(()=>b.remove(), 8000);
+  }
+});
+
+/* ============ BANC DE NÉONS INTERACTIF (canvas + boids) ============ */
+const canvas = document.getElementById('school');
+const ctx = canvas.getContext('2d');
+let W, H, mouse = {x:-9999, y:-9999, active:false};
+function resize(){
+  const r = ocean.getBoundingClientRect();
+  W = canvas.width = ocean.clientWidth;
+  H = canvas.height = ocean.clientHeight;
+}
+resize(); addEventListener('resize', resize);
+
+ocean.addEventListener('pointermove', e=>{
+  const r = ocean.getBoundingClientRect();
+  mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.active = true;
+});
+ocean.addEventListener('pointerleave', ()=>{ mouse.active = false; mouse.x = -9999; });
+
+const N = innerWidth < 700 ? 26 : 48;
+const boids = [];
+for(let i=0;i<N;i++){
+  boids.push({
+    x: Math.random()*innerWidth, y: Math.random()*600,
+    vx: (Math.random()*2-1)*1.5, vy:(Math.random()*2-1)*1.5,
+    size: 9 + Math.random()*8, phase: Math.random()*Math.PI*2,
+    hue: Math.random() < .8 ? 'neon' : 'cardinal'
+  });
+}
+
+function drawNeonFish(b, t){
+  const angle = Math.atan2(b.vy, b.vx);
+  const wag = Math.sin(t*0.018 + b.phase) * 0.45;
+  const s = b.size;
+  ctx.save();
+  ctx.translate(b.x, b.y);
+  ctx.rotate(angle);
+  // queue
+  ctx.save();
+  ctx.translate(-s*1.05, 0); ctx.rotate(wag);
+  ctx.fillStyle = 'rgba(225,238,246,.85)';
+  ctx.beginPath();
+  ctx.moveTo(0,0); ctx.lineTo(-s*.75, -s*.42); ctx.lineTo(-s*.55, 0); ctx.lineTo(-s*.75, s*.42);
+  ctx.closePath(); ctx.fill();
+  ctx.restore();
+  // corps argenté
+  ctx.beginPath();
+  ctx.ellipse(0, 0, s*1.15, s*.34, 0, 0, Math.PI*2);
+  ctx.fillStyle = 'rgba(205,220,232,.95)'; ctx.fill();
+  // bande néon (cyan→bleu) lumineuse
+  const g = ctx.createLinearGradient(-s, 0, s, 0);
+  if(b.hue === 'neon'){ g.addColorStop(0,'#00E5FF'); g.addColorStop(1,'#2979FF'); }
+  else { g.addColorStop(0,'#FF1744'); g.addColorStop(1,'#FF5252'); }
+  ctx.shadowColor = b.hue==='neon' ? 'rgba(0,229,255,.9)' : 'rgba(255,23,68,.9)';
+  ctx.shadowBlur = 9;
+  ctx.beginPath();
+  ctx.ellipse(0, -s*.06, s*1.02, s*.13, 0, 0, Math.PI*2);
+  ctx.fillStyle = g; ctx.fill();
+  ctx.shadowBlur = 0;
+  // ventre rouge (néon bleu)
+  if(b.hue === 'neon'){
+    ctx.beginPath();
+    ctx.ellipse(-s*.3, s*.14, s*.62, s*.12, 0, 0, Math.PI*2);
+    ctx.fillStyle = 'rgba(255,23,68,.9)'; ctx.fill();
+  }
+  // œil
+  ctx.beginPath(); ctx.arc(s*.82, -s*.04, s*.13, 0, Math.PI*2);
+  ctx.fillStyle = '#0a0a0a'; ctx.fill();
+  ctx.beginPath(); ctx.arc(s*.79, -s*.07, s*.05, 0, Math.PI*2);
+  ctx.fillStyle = '#fff'; ctx.fill();
+  ctx.restore();
+}
+
+function step(t){
+  ctx.clearRect(0,0,W,H);
+  for(const b of boids){
+    let ax=0, ay=0, cx=0, cy=0, vxm=0, vym=0, n=0;
+    for(const o of boids){
+      if(o===b) continue;
+      const dx=o.x-b.x, dy=o.y-b.y, d2=dx*dx+dy*dy;
+      if(d2 < 110*110){ cx+=o.x; cy+=o.y; vxm+=o.vx; vym+=o.vy; n++;
+        if(d2 < 30*30){ ax -= dx*0.012; ay -= dy*0.012; } }
+    }
+    if(n){
+      ax += ((cx/n) - b.x)*0.0014;
+      ay += ((cy/n) - b.y)*0.0014;
+      ax += ((vxm/n) - b.vx)*0.05;
+      ay += ((vym/n) - b.vy)*0.05;
+    }
+    // attiré doucement par la souris, mais fuit si trop proche
+    if(mouse.active){
+      const dx = mouse.x-b.x, dy = mouse.y-b.y, d = Math.hypot(dx,dy);
+      if(d > 130){ ax += dx/d*0.06; ay += dy/d*0.06; }
+      else if(d < 70 && d > 0){ ax -= dx/d*0.5; ay -= dy/d*0.5; }
+    }
+    // rester dans le cadre
+    const m = 60;
+    if(b.x < m) ax += 0.12; if(b.x > W-m) ax -= 0.12;
+    if(b.y < m+70) ay += 0.12; if(b.y > H-m) ay -= 0.12;
+
+    b.vx += ax; b.vy += ay;
+    const sp = Math.hypot(b.vx,b.vy), max=2.6, min=.7;
+    if(sp > max){ b.vx = b.vx/sp*max; b.vy = b.vy/sp*max; }
+    if(sp < min && sp > 0){ b.vx = b.vx/sp*min; b.vy = b.vy/sp*min; }
+    b.x += b.vx; b.y += b.vy;
+    drawNeonFish(b, t);
+  }
+  requestAnimationFrame(step);
+}
+
+/* ============ ICÔNES POISSONS DES CARTES ============ */
+document.querySelectorAll('[data-fish]').forEach(el=>{
+  el.innerHTML = SPECIES[el.dataset.fish]();
+});
+
+/* ============ AQUARIUM DE LA SECTION ENGAGEMENT ============ */
+const tank = document.getElementById('tank');
+if(tank){
+  // plantes
+  for(let i=0;i<5;i++){
+    const w = document.createElement('div');
+    w.className='weed';
+    const h = 100 + Math.random()*120;
+    w.style.left = (5 + i*20 + Math.random()*8)+'%';
+    w.style.width='34px'; w.style.height=h+'px';
+    w.style.animationDelay = (-Math.random()*3)+'s';
+    w.innerHTML = `<svg viewBox="0 0 34 ${h}" width="34" height="${h}">
+      <path d="M17 ${h} C8 ${h*.6} 12 ${h*.3} 6 0 M17 ${h} C17 ${h*.55} 19 ${h*.25} 17 4 M17 ${h} C26 ${h*.62} 22 ${h*.32} 30 6"
+        stroke="rgba(46,180,140,.7)" stroke-width="5" fill="none" stroke-linecap="round"/></svg>`;
+    tank.appendChild(w);
+  }
+  // poissons du bac
+  const tankCast = [
+    {sp:'betta', w:150, x:8,  y:18, dur:6},
+    {sp:'neon',  w:70,  x:55, y:50, dur:4},
+    {sp:'neon',  w:55,  x:68, y:62, dur:5},
+    {sp:'guppy', w:90,  x:40, y:34, dur:7},
+  ];
+  tankCast.forEach(c=>{
+    const f = document.createElement('div');
+    f.className='tank-fish';
+    f.style.width=c.w+'px'; f.style.left=c.x+'%'; f.style.top=c.y+'%';
+    f.style.animationDuration=c.dur+'s';
+    f.style.animationDelay=(-Math.random()*c.dur)+'s';
+    f.innerHTML = SPECIES[c.sp]();
+    tank.appendChild(f);
+  });
+  // bulles du bac
+  setInterval(()=>{
+    if(document.hidden) return;
+    const b=document.createElement('div');
+    b.className='bubble';
+    const s=4+Math.random()*9;
+    b.style.width=b.style.height=s+'px';
+    b.style.left=(80+Math.random()*12)+'%';
+    b.style.bottom='-20px';
+    b.style.animationDuration=(4+Math.random()*3)+'s';
+    tank.appendChild(b);
+    setTimeout(()=>b.remove(),8000);
+  },900);
+}
+
+/* ============ LANCEMENT ============ */
+if(!reduced){
+  spawnSwimmers();
+  spawnJellies();
+  spawnPlankton();
+  spawnBubbleColumn();
+  requestAnimationFrame(step);
+}
+
+/* reveal au scroll */
+const obs = new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
 </body>
 </html>
