@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Emma & David — 18.10.2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-main: #3d3530;
+            --bg-color: #f7f3f0;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body, html {
+            margin: 0; padding: 0;
+            height: 100%; width: 100%;
+            background-color: var(--bg-color);
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- TEXTURE DE FOND PAPIER --- */
+        body::before {
+            content: "";
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* --- LOGO GÉANT --- */
+        .logo-container {
+            position: fixed; /* Fixé pour occuper tout l'espace derrière le bouton */
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Coupe ce qui dépasse du scale */
+            animation: heroReveal 2.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .main-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ou 'cover' si tu veux qu'elle soit zoomée au point de toucher les bords */
+            transform: scale(1.5); /* AUGMENTATION DRASTIQUE ICI */
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.05));
+        }
+
+        /* --- CONTAINER BOUTON --- */
+        .footer-overlay {
+            position: fixed;
+            bottom: 60px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 30; /* Au-dessus du logo géant */
+            animation: fadeInBtn 3s ease-out;
+        }
+
+        /* --- BOUTON LUXE --- */
+        .btn-enter {
+            display: inline-block;
+            padding: 20px 60px;
+            background: rgba(255, 255, 255, 0.85); /* Fond plus opaque car logo dessous */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--text-main);
+            border: 1px solid var(--text-main);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .btn-enter:hover {
+            background: var(--text-main);
+            color: #fff;
+            letter-spacing: 8px;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes heroReveal {
+            from { opacity: 0; transform: scale(1.2); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInBtn {
+            0%, 50% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-out {
+            animation: fadeOut 0.8s forwards cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; transform: scale(1.1); filter: blur(20px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container" id="hero">
+        <img src="logo1.png" alt="Emma & David" class="main-logo">
+    </div>
+
+    <div class="footer-overlay">
+        <button class="btn-enter" onclick="startTransition()">Voir l'invitation</button>
+    </div>
+
+    <script>
+        function startTransition() {
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = "premiere-page.html";
+            }, 800);
+        }
+    </script>
+</body>
+</html>
